@@ -1,11 +1,11 @@
 body {
-	background-color: #F7FFCC;
+	background-color: #ffe680;
 	color: #003300;
 	font-family: sans-serif;
 }
 
 nav {
-	background: #006600;
+	background: #990000;
 	height: 1.8em;
 	font-size: large;	
 }
@@ -21,7 +21,7 @@ nav ul,nav ul li ul {
 }
 
 nav>ul>li {
-	background-color: #006600;
+	background-color: #990000;
 	float: left;
 	position: relative;
 }
@@ -31,7 +31,7 @@ nav ul li a,nav ul li:hover ul {
 }
 
 nav ul li ul {
-	background-color: #006600;
+	background-color: #990000;
 	box-shadow: 5px 5px #777777;
 	display: none;
 	position: absolute;
@@ -40,7 +40,7 @@ nav ul li ul {
 }
 
 nav ul li:hover {
-	background-color: #00CC00;
+	background-color: #e6ac00;
 }
 
 nav>ul>li>a,nav ul li ul li a, #logoutbutton {
