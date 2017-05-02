@@ -12,4 +12,5 @@ public interface BrouwerService {
     
     List<Brouwer> findByNaam(String beginNaam);
     
+    List<Brouwer> findByNaam(char eersteLetter);
 }

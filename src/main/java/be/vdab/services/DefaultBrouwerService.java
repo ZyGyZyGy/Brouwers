@@ -30,5 +30,10 @@ public class DefaultBrouwerService implements BrouwerService {
     public List<Brouwer> findByNaam(String beginNaam) {
 	return brouwerRepository.findByNaam(beginNaam);
     }
+    
+    public List<Brouwer> findByNaam(char eersteLetter) {
+	return brouwerRepository.findByNaam(eersteLetter);
+    }
+    
 
 }

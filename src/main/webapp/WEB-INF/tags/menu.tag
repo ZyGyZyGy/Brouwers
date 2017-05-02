@@ -8,6 +8,7 @@
 				<li><a href="<c:url value='/brouwers'/>">Alle brouwers</a></li>
 				<li><a href="<c:url value='/brouwers/beginnaam'/>">Brouwers op naam</a></li>
 				<li><a href="<c:url value='/brouwers/toevoegen'/>">Brouwers toevoegen</a></li>
+				<li><a href="<c:url value='/brouwers/opAlfabet'/>">Brouwers op alfabet</a></li>
 			</ul>
 		</li>
 	</ul>
