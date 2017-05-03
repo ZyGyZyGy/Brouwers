@@ -11,5 +11,17 @@
 				<li><a href="<c:url value='/brouwers/opAlfabet'/>">Brouwers op alfabet</a></li>
 			</ul>
 		</li>
+		<c:if test="${pageContext.response.locale.language != 'nl'}">
+			<c:url value="" var="nederlandsURL">
+				<c:param name="locale" value="nl_be"/>
+			</c:url>
+			<li><a href="${nederlandsURL}"><img src="<c:url value='/images/nl.png'/>" alt="Nederlands" title="Nederlands"></a></li>
+		</c:if>
+		<c:if test="${pageContext.response.locale.language != 'en'}">
+			<c:url value="" var="engelsURL">
+				<c:param name="locale" value="en_us"/>
+			</c:url>
+			<li><a href="${engelsURL}"><img src='<c:url value="/images/en.png"></c:url>' alt="English" title="English"></a></li>
+		</c:if>
 	</ul>
 </nav>
