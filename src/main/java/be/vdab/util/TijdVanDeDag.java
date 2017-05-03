@@ -1,4 +1,4 @@
-package be.vdab.valueobjects;
+package be.vdab.util;
 
 import java.time.LocalDateTime;
 
