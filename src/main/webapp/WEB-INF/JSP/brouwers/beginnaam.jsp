@@ -19,7 +19,7 @@
 	</form:form>
 	<ul>
 		<c:forEach items="${brouwers}" var="brouwer">
-			<li>${brouwer.naam}</li>			
+			<li>${brouwer.naam}</li>
 		</c:forEach>
 	</ul>
 </body>

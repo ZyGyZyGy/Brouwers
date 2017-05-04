@@ -1,10 +1,12 @@
 package be.vdab.valueobjects;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
 public class BeginnaamForm {
     
     @NotBlank
+    @Length(min = 1, max = 20)
     private String beginnaam;
 
     public String getBeginnaam() {
