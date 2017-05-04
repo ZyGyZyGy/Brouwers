@@ -42,7 +42,8 @@ public class InMemoryBrouwerRepository implements BrouwerRepository {
     public List<Brouwer> findByNaam(String beginNaam) {
 	List<Brouwer> brouwerList = new ArrayList<>();
 	for (Brouwer brouwer : brouwers.values()) {
-	    if (brouwer.getNaam().contains(beginNaam)) {
+	    if (brouwer.getNaam().toLowerCase()
+		    .startsWith(beginNaam.toLowerCase().trim())) {
 		brouwerList.add(brouwer);
 	    }
 	}

@@ -2,14 +2,20 @@ package be.vdab.web;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.DataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import be.vdab.entities.Brouwer;
 import be.vdab.services.BrouwerService;
+import be.vdab.valueobjects.BeginnaamForm;
 
 @Controller
 @RequestMapping("/brouwers")
@@ -31,11 +37,6 @@ public class BrouwerController {
 	return new ModelAndView(BROUWERS_VIEW, "brouwers", brouwerService.findAll());
     }
 
-    @GetMapping("beginnaam")
-    String findMetBeginnaam() {
-	return BEGINNAAM_VIEW;
-    }
-
     @GetMapping("toevoegen")
     String brouwersToevoegen() {
 	return TOEVOEGEN_VIEW;
@@ -45,14 +46,31 @@ public class BrouwerController {
     ModelAndView opAlfabet() {
 	return new ModelAndView(BROUWERS_OP_ALFABET, "alleLetters", alleLetters);
     }
-    
+
     @GetMapping("/opAlfabet/{letter}")
     ModelAndView opAlfabet(@PathVariable char letter) {
 	ModelAndView modelAndView = new ModelAndView(BROUWERS_OP_ALFABET);
 	List<Brouwer> brouwers = brouwerService.findByNaam(letter);
-	modelAndView
-		.addObject("alleLetters", alleLetters)
-		.addObject("brouwers", brouwers);
+	modelAndView.addObject("alleLetters", alleLetters).addObject("brouwers", brouwers);
+	return modelAndView;
+    }
+
+    @GetMapping("beginnaam")
+    ModelAndView findMetBeginnaam() {
+	return new ModelAndView(BEGINNAAM_VIEW).addObject(new BeginnaamForm());
+    }
+
+    @InitBinder("beginnaam")
+    void initBinderBeginnaam(DataBinder dataBinder) {
+	dataBinder.setRequiredFields("beginnaam");
+    }
+
+    @GetMapping(params = { "beginnaam" })
+    ModelAndView findMetBeginnaam(@Valid BeginnaamForm beginnaam, BindingResult bindingResult) {
+	ModelAndView modelAndView = new ModelAndView(BEGINNAAM_VIEW);
+	if (!bindingResult.hasErrors()) {
+	    modelAndView.addObject("brouwers", brouwerService.findByNaam(beginnaam.getBeginnaam()));
+	}
 	return modelAndView;
     }
 

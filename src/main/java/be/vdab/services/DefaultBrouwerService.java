@@ -35,5 +35,4 @@ public class DefaultBrouwerService implements BrouwerService {
 	return brouwerRepository.findByNaam(eersteLetter);
     }
     
-
 }
