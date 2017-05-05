@@ -212,3 +212,8 @@ blockquote {
 #alfabet a {
 	color: #0066ff;
 }
+
+.actief {
+	text-decoration: none;
+	font-size: 30px;
+}

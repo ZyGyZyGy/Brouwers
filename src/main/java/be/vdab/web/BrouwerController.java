@@ -69,7 +69,9 @@ public class BrouwerController {
     ModelAndView opAlfabet(@PathVariable char letter) {
 	ModelAndView modelAndView = new ModelAndView(BROUWERS_OP_ALFABET);
 	List<Brouwer> brouwers = brouwerService.findByNaam(letter);
-	modelAndView.addObject("alleLetters", alleLetters);
+	modelAndView
+        	.addObject("alleLetters", alleLetters)
+        	.addObject("aangeklikteLetter", letter);
 	if (!brouwers.isEmpty()) {
 	    modelAndView.addObject("brouwers", brouwers);
 	} else {
