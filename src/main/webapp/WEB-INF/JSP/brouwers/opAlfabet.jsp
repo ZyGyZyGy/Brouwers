@@ -23,5 +23,8 @@
 			</c:forEach>
 		</ul>
 	</c:if>
+	<c:if test="${not empty fout}">
+		<p class="fout2">${fout}</p>
+	</c:if>
 </body>
 </html>

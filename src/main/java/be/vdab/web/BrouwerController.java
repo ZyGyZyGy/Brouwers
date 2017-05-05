@@ -69,7 +69,12 @@ public class BrouwerController {
     ModelAndView opAlfabet(@PathVariable char letter) {
 	ModelAndView modelAndView = new ModelAndView(BROUWERS_OP_ALFABET);
 	List<Brouwer> brouwers = brouwerService.findByNaam(letter);
-	modelAndView.addObject("alleLetters", alleLetters).addObject("brouwers", brouwers);
+	modelAndView.addObject("alleLetters", alleLetters);
+	if (!brouwers.isEmpty()) {
+	    modelAndView.addObject("brouwers", brouwers);
+	} else {
+	    modelAndView.addObject("fout", "Geen brouwers gevonden");
+	}
 	return modelAndView;
     }
 
