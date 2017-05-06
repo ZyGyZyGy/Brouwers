@@ -38,7 +38,7 @@ public class ControllersConfig extends WebMvcConfigurerAdapter{
     }
     
     @Bean
-   MessageSource messageSource() {
+    MessageSource messageSource() {
 	ReloadableResourceBundleMessageSource source
 		= new ReloadableResourceBundleMessageSource();
 	source.setBasename("classpath:teksten");
