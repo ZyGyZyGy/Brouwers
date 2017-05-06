@@ -6,7 +6,7 @@ import org.hibernate.validator.constraints.NotBlank;
 public class BeginnaamForm {
     
     @NotBlank
-    @Length(min = 1, max = 20)
+    @Length(max = 20)
     private String beginnaam;
 
     public String getBeginnaam() {

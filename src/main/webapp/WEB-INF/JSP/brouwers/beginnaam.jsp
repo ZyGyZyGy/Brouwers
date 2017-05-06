@@ -17,10 +17,17 @@
 		<form:input path="beginnaam" autofocus="autofocus" type="text" required="required"/>
 		<input type="submit" value="Zoeken">
 	</form:form>
-	<ul>
-		<c:forEach items="${brouwers}" var="brouwer">
-			<li>${brouwer.naam}</li>
-		</c:forEach>
-	</ul>
+	<c:choose>
+		<c:when test="${empty fout}">
+			<ul>
+				<c:forEach items="${brouwers}" var="brouwer">
+					<li>${brouwer.naam}</li>
+				</c:forEach>
+			</ul>
+		</c:when>
+		<c:otherwise>
+			<p class="fout2">${fout}</p>
+		</c:otherwise>
+	</c:choose>
 </body>
 </html>

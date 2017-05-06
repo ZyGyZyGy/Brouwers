@@ -94,7 +94,12 @@ public class BrouwerController {
     ModelAndView findMetBeginnaam(@Valid BeginnaamForm beginnaam, BindingResult bindingResult) {
 	ModelAndView modelAndView = new ModelAndView(BEGINNAAM_VIEW);
 	if (!bindingResult.hasErrors()) {
-	    modelAndView.addObject("brouwers", brouwerService.findByNaam(beginnaam.getBeginnaam()));
+	    List<Brouwer> brouwers = brouwerService.findByNaam(beginnaam.getBeginnaam());
+	    if (!brouwers.isEmpty()) {
+		modelAndView.addObject("brouwers", brouwers);
+	    } else {
+		modelAndView.addObject("fout", "geen brouwers gevonden");
+	    }
 	}
 	return modelAndView;
     }
