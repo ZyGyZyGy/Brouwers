@@ -11,7 +11,7 @@ public interface BrouwerRepository {
     List<Brouwer> findAll();
 
     List<Brouwer> findByNaam(String beginNaam);
-
-    List<Brouwer> findByNaam(char eersteLetter);
     
+    List<Brouwer> findByNaam(char eersteLetter);
+
 }
