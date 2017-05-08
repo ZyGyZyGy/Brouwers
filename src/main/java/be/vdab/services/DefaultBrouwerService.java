@@ -8,6 +8,7 @@ import be.vdab.entities.Brouwer;
 import be.vdab.repositories.BrouwerRepository;
 
 @Service
+@ReadOnlyTransactionalService
 public class DefaultBrouwerService implements BrouwerService {
 
     private final BrouwerRepository brouwerRepository;
@@ -17,6 +18,7 @@ public class DefaultBrouwerService implements BrouwerService {
     }
 
     @Override
+    @ModifyingTransactionalServiceMethod
     public void create(Brouwer brouwer) {
 	brouwerRepository.create(brouwer);
     }
