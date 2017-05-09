@@ -29,6 +29,7 @@
 	<form:errors path='omzet' />
 	<form:input path="omzet" required="required"/>
 	</form:label>
+	<form:hidden path="versie" />
 	<input type='submit' value='${knopTekst}' id='submitknop'>
 	<script>
 		document.getElementById('brouwerform').onsubmit = function() {

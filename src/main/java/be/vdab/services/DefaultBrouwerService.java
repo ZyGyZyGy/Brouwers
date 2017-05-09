@@ -20,7 +20,7 @@ public class DefaultBrouwerService implements BrouwerService {
     @Override
     @ModifyingTransactionalServiceMethod
     public void create(Brouwer brouwer) {
-	brouwerRepository.create(brouwer);
+	brouwerRepository.save(brouwer);
     }
 
     @Override
@@ -30,11 +30,7 @@ public class DefaultBrouwerService implements BrouwerService {
 
     @Override
     public List<Brouwer> findByNaam(String beginNaam) {
-	return brouwerRepository.findByNaam(beginNaam);
-    }
-    
-    public List<Brouwer> findByNaam(char eersteLetter) {
-	return brouwerRepository.findByNaam(eersteLetter);
+	return brouwerRepository.findByNaamStartingWithOrderByNaam(beginNaam);
     }
     
 }

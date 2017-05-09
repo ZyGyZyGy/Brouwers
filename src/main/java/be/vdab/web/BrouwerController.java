@@ -29,7 +29,7 @@ public class BrouwerController {
     private static final String BROUWERS_OP_ALFABET = "brouwers/opAlfabet";
     private static final String REDIRECT_NA_TOEVOEGEN = "redirect:/";
     
-    private static final char[] alleLetters = "ABCDEFGHIJKLNOPQRSTUVWXYZ".toCharArray();
+    private static final String[] alleLetters = "A B C D E F G H I J K L N O P Q R S T U V W X Y Z".split(" ");
     private final BrouwerService brouwerService;
 
     BrouwerController(BrouwerService brouwerService) {
@@ -66,7 +66,7 @@ public class BrouwerController {
     }
 
     @GetMapping("/opAlfabet/{letter}")
-    ModelAndView opAlfabet(@PathVariable char letter) {
+    ModelAndView opAlfabet(@PathVariable String letter) {
 	ModelAndView modelAndView = new ModelAndView(BROUWERS_OP_ALFABET);
 	List<Brouwer> brouwers = brouwerService.findByNaam(letter);
 	modelAndView
