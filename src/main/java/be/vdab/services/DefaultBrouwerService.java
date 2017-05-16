@@ -1,6 +1,7 @@
 package be.vdab.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -31,6 +32,12 @@ public class DefaultBrouwerService implements BrouwerService {
     @Override
     public List<Brouwer> findByNaam(String beginNaam) {
 	return brouwerRepository.findByNaamStartingWithOrderByNaam(beginNaam);
+    }
+
+    @Override
+    public Optional<Brouwer> read(long id) {
+	return Optional.ofNullable(
+		brouwerRepository.findOne(id));
     }
     
 }

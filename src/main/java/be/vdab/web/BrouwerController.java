@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.DataBinder;
@@ -20,7 +21,7 @@ import be.vdab.services.BrouwerService;
 import be.vdab.valueobjects.BeginnaamForm;
 
 @Controller
-@RequestMapping("/brouwers")
+@RequestMapping(path = "/brouwers", produces = MediaType.TEXT_HTML_VALUE)
 public class BrouwerController {
 
     private static final String BROUWERS_VIEW = "brouwers/brouwers";
@@ -104,8 +105,6 @@ public class BrouwerController {
 	return modelAndView;
     }
     
-    
-
 }
 
 
