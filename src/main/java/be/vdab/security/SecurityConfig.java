@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
@@ -26,8 +27,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
 	auth.jdbcAuthentication().dataSource(dataSource)
-		.usersByUsernameQuery("");
-	// TODO authentication via database
+		.passwordEncoder(new BCryptPasswordEncoder());
+	
+//	auth.inMemoryAuthentication()  
+//	     .withUser("joe").password("theboss").authorities(USER)  
+//	     .and().withUser("alex").password("vdab").authorities(ADMINISTRATOR); 
     }
     
     @Override
@@ -44,10 +48,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.and().logout().logoutSuccessUrl("/")
 				.and().authorizeRequests()
 				.antMatchers("/brouwers", "/brouwers/beginnaam", "/brouwers/opAlfabet").hasAnyAuthority(ADMINISTRATOR, USER)
+				.antMatchers("/brouwers/toevoegen").hasAuthority(ADMINISTRATOR)
 				.antMatchers(HttpMethod.POST, "/brouwers").hasAuthority(ADMINISTRATOR)
 				.antMatchers("/", "/login").permitAll()
 				.antMatchers("/**").authenticated()
 				.and().exceptionHandling().accessDeniedPage("/WEB-INF/JSP/forbidden.jsp");
+	http.httpBasic();
     }
     
 }

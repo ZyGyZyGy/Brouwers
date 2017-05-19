@@ -25,7 +25,7 @@
 				<tr>
 					<td>${brouwer.brouwerNr}</td><td>${brouwer.naam}</td><td>${brouwer.adres.straat}</td>
 					<td>${brouwer.adres.huisNr}</td><td>${brouwer.adres.postcode}</td>
-					<td>${brouwer.adres.gemeente} <a href="${temperatuurURL}">temperatuur</a></td><td>${brouwer.omzet}</td>
+					<td>${brouwer.adres.gemeente} <a href="${temperatuurURL}" style="float:right;"><img alt="thermometer" src="<c:url value='/images/thermometer.png'/>" title="temperatuur"></a></td><td>${brouwer.omzet}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

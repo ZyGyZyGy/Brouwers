@@ -10,6 +10,6 @@
 	<v:menu />
 	<h1>Brouwers toevoegen</h1>
 	<c:url value="/brouwers" var="url"/>
-	<v:brouwerform url="${url}" knopTekst="Toevoegen"></v:brouwerform>
+	<v:brouwerform url="${url}" knopTekst="Toevoegen"/>
 </body>
 </html>

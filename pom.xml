@@ -116,7 +116,7 @@
   			<artifactId>spring-plugin-core</artifactId> 
   			<version>[1.2,]</version> 
 		</dependency> 
-		<dependency> 
+		<dependency> <!-- SECURITY -->
   			<groupId>org.springframework.security</groupId> 
   			<artifactId>spring-security-config</artifactId> 
   			<version>4.2.1.RELEASE</version> 
